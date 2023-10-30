@@ -11,6 +11,8 @@ export const StatusLabels = {
 	[Status.pending]: "needs review",
 	[Status.reviewed]: "reviewed",
 	[Status.released]: "released",
+	[Status.reviewed]: "reviewed",
+	[Status.released]: "released",
 };
 
 const StatusTypes: Record<Status, StatusIndicatorProps.Type> = {

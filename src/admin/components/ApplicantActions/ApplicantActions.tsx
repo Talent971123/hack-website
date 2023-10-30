@@ -51,6 +51,12 @@ function ApplicantActions({ applicant, submitReview }: ApplicantActionsProps) {
 			iconName: "status-negative",
 			description: "Reject the applicant",
 		},
+		{
+			text: "think",
+			id: Decision.rejected,
+			iconName: "status-negative",
+			description: "think the applicant",
+		},
 	];
 
 	return (

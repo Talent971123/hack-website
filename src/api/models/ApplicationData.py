@@ -33,6 +33,7 @@ class RawApplicationData(BaseModel):
     linkedin_link: Optional[HttpUrl]
     stress_relief_question: Optional[str] = Field(max_length=4096)
     company_specialize_question: str = Field(max_length=4096)
+    company_specialize_question1: str = Field(max_length=4096)
 
     class Config:
         anystr_strip_whitespace = True

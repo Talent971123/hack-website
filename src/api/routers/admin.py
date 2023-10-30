@@ -63,6 +63,36 @@ async def applicants(
         raise RuntimeError("Could not parse applicant data.")
 
 
+@router.get("/applicantstomany")
+async def applicants(
+    user: User = Depends(require_role(ADMIN_ROLES)),
+) -> list[ApplicantSummary]:
+    """Get records of all applicants."""
+    log.info("%s requested applicants", user)
+
+    records: list[dict[str, object]] = await mongodb_handler.retrieve(
+        Collection.USERS,
+        {"role": Role.APPLICANT},
+        [
+            "_id",
+            "status",
+            "application_data.first_name",
+            "application_data.last_name",
+            "application_data.university",
+            "application_data.submission_time",
+            "application_data.reviews",
+        ],
+    )
+
+    for record in records:
+        _include_review_decision(record)
+
+    try:
+        return parse_obj_as(list[ApplicantSummary], records)
+    except ValidationError:
+        raise RuntimeError("Could not parse applicant data.")
+
+
 @router.get("/applicant/{uid}")
 async def applicant(
     uid: str,

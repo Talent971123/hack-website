@@ -11,7 +11,7 @@ from utils.user_record import Role, UserRecord
 def require_role(
     allowed_roles: Sequence[Role],
 ) -> Callable[[User], Coroutine[Any, Any, User]]:
-    """Return a dependency which requires a user to have an allowed role."""
+    """Return a dependency which requires a user to have an allowed role. and did the dependencies"""
 
     async def require_allowed_role(user: User = Depends(require_user_identity)) -> User:
         """Require a user to have a role in the allowed roles."""

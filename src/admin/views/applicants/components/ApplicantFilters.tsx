@@ -20,8 +20,6 @@ const StatusIcons: Record<Status, IconProps.Name> = {
 	[ReviewStatus.reviewed]: "status-in-progress",
 	[ReviewStatus.released]: "status-positive",
 	[Decision.accepted]: "status-positive",
-	[Decision.rejected]: "status-pending",
-	[Decision.waitlisted]: "status-negative",
 };
 
 const statusOption = (status: Status) => ({

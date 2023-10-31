@@ -34,12 +34,6 @@ function ApplicantActions({ applicant, submitReview }: ApplicantActionsProps) {
 
 	const dropdownItems: ReviewButtonItems = [
 		{
-			text: "Accept",
-			id: Decision.accepted,
-			iconName: "status-positive",
-			description: "Accept the applicant",
-		},
-		{
 			text: "Waitlist",
 			id: Decision.waitlisted,
 			iconName: "status-pending",
